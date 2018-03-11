@@ -48,7 +48,17 @@ This is at the section 2). Having thsoe functions set up, I started to try many 
 
 #### 3. Describe how (and identify where in your code) you trained a classifier using your selected HOG features (and color features if you used them).
 
-This is at the end of section 2, along with the previous part (HOG feature parameter adjustment). I used a linear SVC as recommended. Having changed those HOG feature parameters, I combined all of the features, such as HOG features, binned color features, and histogram features. Changed spatial size to (16,16), left hist bins as 32, and used 11 orientations, 16 pixels per cell, and 2 cells per block on HOG features. For training data, since car images and notcar images have very close lengths, I used all of them by concatenating them and randomly split, using 20% test. The final test accuracy of SVC is 99.04%. I have then picked up 30 samples, and 29 of them have right prediction. One was predicted as a car images but it is actually not. This can be found at the end of In[104] of the code.
+This is at the end of section 2, along with the previous part (HOG feature parameter adjustment). I used a linear SVC as recommended. Having changed those HOG feature parameters, I combined all of the features, such as HOG features, binned color features, and histogram features. Changed spatial size to (16,16), left hist bins as 32, and used 11 orientations, 16 pixels per cell, and 2 cells per block on HOG features. For training data, since car images and notcar images have very close lengths, I used all of them by concatenating them and randomly split, using 20% test. The final test accuracy of SVC is 99.04%. I have then picked up 30 samples, and 29 of them have right prediction. One was predicted as a car images but it is actually not. This can be found at the end of In[104] of the code. A summary of parameters used are shown below.
+
+| parameter        | value | 
+|:-------------:|:-------------:|
+| color_space    |  YCrCb    | 
+| orient    | 11    | 
+| pix_per_cell   |  16    | 
+| cell_per_block    |  2    | 
+| hog_channel    |  ALL  | 
+| spatial_size   |  (16,16)   | 
+| hist_bins    |  32  | 
 
 ### Sliding Window Search
 
